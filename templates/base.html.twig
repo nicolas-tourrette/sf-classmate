@@ -1,12 +1,100 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Classmate{% endblock %}</title>
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('app') }}
+		<link rel="icon" href="{{ asset('images/icone.png') }}">
+	{% endblock %}
+</head>
+<body>
+<div class="page">
+	<div class="menu">
+		{% block menu %}
+			<div class="home_icon">
+				<img src="{{ asset("/images/icone.png") }}" alt="Classmate">
+				<ul>
+					<li class="{{ app.request.attributes.get( '_route' ) is same as "front_home" ? "active" }}">
+						<a href="{{ path("front_home") }}"><i class="icofont-home"></i></a>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:void(0)">Découvrir Classmate</a>
+						<ul class="dropdown-content">
+							<li><a href="">À propos de Classmate</a></li>
+							<li><a href="">Fonctionnalités en détail</a></li>
+							<li><a href="">Gamme tarifaire</a></li>
+						</ul>
+					</li>
+					<li><a href="">Blog</a></li>
+					<li><a href="">Assistance</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+			</div>
+			<ul>
+				<li><a href="">Se connecter</a></li>
+			</ul>
+		{% endblock %}
+	</div>
+	<div class="content">
+		{% block body %}
+			<section>
+				<div class="home-intro">
+					<div class="home-intro__hero-title">
+						<h1>Classmate</h1>
+						<p class="home-intro__hero-subtitle">Logiciel dédié<br>aux enseignants</p>
+						<p>
+							Soyez plus rapides et plus efficaces grâce à nos outils conçus pour vous rendre les tâches administratives et la
+							communication plus simples et moins chronophages.
+						</p>
+						<a href="" class="btn btn-big">En savoirs plus</a>
+					</div>
+					<div class="home-intro__logo">
+						<img src="{{ asset('images/icone.png') }}" alt="Classmate">
+					</div>
+				</div>
+			</section>
+			<section>
+				<h1>Hello World</h1>
+				<h2>Hello World</h2>
+				<h3>Hello World</h3>
+				<h4>Hello World</h4>
+				<h5>Hello World</h5>
+				<h6>Hello World</h6>
+				<p>Hello World</p>
+			</section>
+		{% endblock %}
+	</div>
+	<div class="footer">
+		<div>
+			<div class="footer-title">À propos de Classmate</div>
+			<p>
+				Classmate est un logiciel web d'aide aux enseignants. Il propose de nombreux outils tels que l'élaboration d'emploi du
+				temps, la rédaction du cahier-journal, la gestion du cahier de textes, la prise de rendez-vous entre parents et enseignants.
+			</p>
+			<p>
+				Classmate est actuellement en version {{ version }}.
+			</p>
+			<p>
+				&copy; 2020 Nicolas TOURRETTE. Tous droits réservés.
+			</p>
+		</div>
+		<div>
+			<div class="footer-title">Dernières nouvelles</div>
+			...
+		</div>
+		<div>
+			<div class="footer-title">Nous contacter</div>
+			<ul>
+				<li><a href=""><i class="icofont-at"></i> Par e-mail</a></li>
+				<li><a href=""><i class="icofont-info-square"></i> À propos de Classmate</a></li>
+				<li><a href=""><i class="icofont-finger-print"></i> Politique de confidentialité</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% block javascripts %}
+	{{ encore_entry_script_tags('app') }}
+{% endblock %}
+</body>
 </html>

@@ -1,0 +1,48 @@
+.home-intro {
+    position: relative;
+    display: grid;
+    @media (min-width: 1000px) {
+        grid-template-columns: 800px 1fr;
+        grid-gap: 80px;
+    }
+
+    .home-intro__hero-title {
+        font-family: "Montserrat", sans-serif;
+
+        h1 {
+            color: var(--dark-blue);
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        p.home-intro__hero-subtitle {
+            color: var(--light-dark-blue);
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-top: 15px;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .home-intro__logo {
+        img {
+            opacity: 0.1;
+            filter: invert(43%) sepia(49%) saturate(6044%) hue-rotate(222deg) brightness(107%) contrast(101%);
+            z-index: -1;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .home-intro__logo {
+            display: none;
+        }
+    }
+}
