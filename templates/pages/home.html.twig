@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Classmate : plateforme éducative pour élèves et enseignants' %}
+
+{% block body %}
+	<section>
+		<div class="home-intro">
+			<div class="home-intro__hero-title">
+				<h1>Classmate</h1>
+				<p class="home-intro__hero-subtitle">Plateforme<br>éducative</p>
+				<p>
+					Pour les enseignants et les élèves, afin de simplifier l'enseignement et l'apprentissage. Soyez un enseignant plus efficace dans
+					les tâches quotidiennes et apprenez davantage avec nos applications éducatives.
+				</p>
+				<a href="" class="btn btn-big">En savoirs plus</a>
+			</div>
+			<div class="home-intro__logo">
+				<img src="{{ asset('images/icone.png') }}" alt="Classmate">
+			</div>
+		</div>
+	</section>
+	<section>
+		<h1>Bienvenue sur Classmate !</h1>
+		<h2>Pour les étudiants</h2>
+		<p>
+			Classmate met à disposition des applications permettant de travailler en autonomie sur les sujets proposés par les enseignants. Vous
+			pouvez ensuite vous entraîner grâce à un QCM permettant de voir quelles notions sont acquises et lesquelles sont à retravailler. Vous
+			gardez également un historique des QCM dans votre compte personnel et votre enseignant a accès à vos résultats (dans le cadre des
+			applications proposées par l'établissement).
+		</p>
+		
+		<h2>Pour les enseignants</h2>
+		<p>
+			Votre espace enseignant vous permet d'avoir accès aux applications spécifiques à votre quotidien : création du cahier-journal, remplissage
+			du cahier de textes, communication et prise de rendez-vous avec les parents d'élèves et élaboration de contenus pour vos élèves et
+			création des QCM (ou utilisation de QCM déjà préconçus dans le cadre d'une licence établissement).
+		</p>
+	</section>
+{% endblock %}
