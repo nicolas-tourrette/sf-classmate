@@ -1,0 +1,73 @@
+div.header {
+  background-color: #FFFFFF;
+}
+
+header {
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.07);
+
+  nav {
+
+    a.uk-icon:not(:last-of-type) {
+      margin-right: 10px !important;
+    }
+  }
+
+  .uk-logo img {
+    width: 58px;
+    height: 58px;
+    filter: invert(43%) sepia(49%) saturate(6044%) hue-rotate(222deg) brightness(107%) contrast(101%);
+
+    &:hover {
+      filter: invert(43%) sepia(49%) saturate(6044%) hue-rotate(222deg) brightness(150%) contrast(101%);
+    }
+  }
+}
+
+nav.uk-navbar-container {
+  .uk-navbar-nav > li.uk-active > a {
+    color: var(--light-dark-blue) !important;
+  }
+
+  ul li {
+    a {
+      min-height: 50px !important;
+
+      &:hover, &.uk-active {
+        color: var(--light-dark-blue) !important;
+        transition: color 0.3s;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+
+    div.uk-navbar-dropdown {
+      margin-top: 0 !important;
+
+      ul.uk-navbar-dropdown-nav li a{
+        min-height: auto !important;
+        transition: color .3s;
+      }
+    }
+  }
+}
+
+nav.nav-scroll {
+  position: relative;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  padding: 1rem;
+  line-height: 1em;
+}
+nav.nav-scroll > ul {
+  overflow-x: auto;
+  overflow-y: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+nav.nav-scroll > ul > li > a {
+  font-weight: 500;
+}

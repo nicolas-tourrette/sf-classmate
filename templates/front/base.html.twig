@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title 'Classmate' %} | Classmate</title>
+	<link rel="icon" href="{{ asset('images/icone.png') }}">
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('front_app') }}
+	{% endblock %}
+</head>
+<body>
+<div class="header" uk-sticky="show-on-up: true; animation: uk-animation-fade; media: 760">
+	{% include("front/header.html.twig") %}
+	{% include("front/menu.html.twig") %}
+</div>
+
+
+<div class="uk-container">
+	{% block body %}
+	{% endblock %}
+</div>
+
+<footer class="uk-section uk-section-small uk-section-muted">
+	<div class="uk-container">
+		<div class="uk-child-width-expand@s" uk-grid>
+			<div>
+				<div class="footer-title">À propos de Classmate</div>
+				<p>
+					Classmate est un logiciel web d'aide aux enseignants. Il propose de nombreux outils tels que l'élaboration d'emploi du temps,
+					la rédaction du cahier-journal, la gestion du cahier de textes, la prise de rendez-vous entre parents et enseignants.
+				</p>
+				<p>
+					Classmate est actuellement en version {{ version.getCurrentVersionNumber }}.
+				</p>
+				<p>
+					&copy; {{ 'now' | date("Y") }} Nicolas TOURRETTE. Tous droits réservés.
+				</p>
+			</div>
+			<div>
+				<div class="footer-title">Dernières nouvelles</div>
+				...
+			</div>
+			<div>
+				<div class="footer-title">Nous contacter</div>
+				<ul>
+					<li><a href=""><i class="icofont-at"></i> Par e-mail</a></li>
+					<li><a href=""><span uk-icon="info"></span> À propos de Classmate</a></li>
+					<li><a href=""><i class="icofont-finger-print"></i> Politique de confidentialité</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('front_app') }}
+	<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+{% endblock %}
+</body>
+</html>

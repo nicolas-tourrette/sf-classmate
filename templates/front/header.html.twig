@@ -1,0 +1,37 @@
+<header id="header">
+	<div class="uk-container">
+		<nav id="navbar" data-uk-navbar="mode: click;">
+			<div class="uk-navbar-left nav-overlay uk-visible@s">
+				<ul class="uk-navbar-nav">
+					<li>
+						<a href="#">Souscrire</a>
+					</li>
+					<li>
+						<a href="{{ path('security_login') }}">Se connecter</a>
+					</li>
+				</ul>
+			</div>
+			<div class="uk-navbar-center nav-overlay">
+				<a class="uk-navbar-item uk-logo" href="{{ path('front_home') }}"><img src="{{ asset('images/icone.png') }}" alt="Classmate"></a>
+			</div>
+			<div class="uk-navbar-right nav-overlay">
+				<a class="uk-navbar-toggle uk-visible@s" data-uk-search-icon data-uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
+				   href="#"></a>
+				<div class="uk-navbar-item">
+					<a class="uk-visible@s" style="margin-right: 4px" href="{{ path('front_home') }}" data-uk-icon="home"></a>
+					<a class="uk-visible@s" style="margin-right: 4px" href="#" data-uk-icon="info"></a>
+					<a class="uk-visible@s" style="margin-right: 4px" href="#" data-uk-icon="mail"></a>
+					<a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
+				</div>
+			</div>
+			<div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+				<div class="uk-navbar-item uk-width-expand">
+					<form class="uk-search uk-search-navbar uk-width-1-1" action="/search" method="post">
+						<input class="uk-search-input" type="search" placeholder="Search...">
+					</form>
+				</div>
+				<a class="uk-navbar-toggle" data-uk-close data-uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+			</div>
+		</nav>
+	</div>
+</header>

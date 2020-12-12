@@ -11,6 +11,6 @@ class MainFrontController extends AbstractController
 	 * @Route(path="/", name="front_home")
 	 */
 	public function index(){
-		return $this->render('pages/home.html.twig');
+		return $this->render('front/pages/home.html.twig');
 	}
 }

@@ -1,0 +1,65 @@
+<div class="uk-container">
+	<nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+		<div class="uk-navbar-center">
+			<ul class="uk-navbar-nav uk-flex uk-flex-between">
+				<li class="{{ app.request.attributes.get( '_route' ) is same as "front_home" ? "uk-active" }}">
+					<a href="{{ path("front_home") }}"><i class="icofont-home"></i> Accueil</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)"><i class="icofont-compass-alt"></i> Découvrir Classmate</a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="">À propos de Classmate</a></li>
+							<li><a href="">Fonctionnalités en détail</a></li>
+							<li><a href="">Gamme tarifaire</a></li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="javascript:void(0)"><i class="icofont-learn"></i> Applications</a>
+					<div class="uk-navbar-dropdown">
+						<ul class="uk-nav uk-navbar-dropdown-nav">
+							<li><a href="">GéoBrevet</a></li>
+							<li><a href="">Créez votre application</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href=""><i class="icofont-pen-alt-1"></i> Blog</a></li>
+				<li><a href=""><i class="icofont-confounded"></i> Assistance</a></li>
+				<li><a href=""><i class="icofont-at"></i> Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true">
+	<div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+		<button class="uk-offcanvas-close uk-close" type="button" data-uk-close></button>
+		<ul class="uk-nav uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
+			<li class="uk-nav-header">Classmate</li>
+			<li class="{{ app.request.attributes.get( '_route' ) is same as "front_home" ? "uk-active" }}">
+				<a href="{{ path("front_home") }}"><i class="uk-margin-small-right icofont-home"></i> Accueil</a>
+			</li>
+			<li class="uk-parent">
+				<a href="javascript:void(0)"><i class="uk-margin-small-right icofont-compass-alt"></i> Découvrir Classmate</a>
+				<ul class="uk-nav-sub">
+					<li><a href="#">À propos de Classmate</a></li>
+					<li><a href="">Fonctionnalités en détail</a></li>
+					<li><a href="">Gamme tarifaire</a></li>
+				</ul>
+			</li>
+			<li class="uk-parent">
+				<a href="javascript:void(0)"><i class="uk-margin-small-right icofont-learn"></i> Applications</a>
+				<ul class="uk-nav-sub">
+					<li><a href="#">GéoBrevet</a></li>
+					<li><a href="">Créez votre application</a></li>
+				</ul>
+			</li>
+			<li><a href=""><i class="uk-margin-small-right icofont-pen-alt-1"></i> Blog</a></li>
+			<li><a href=""><i class="uk-margin-small-right icofont-confounded"></i> Assistance</a></li>
+			<li><a href=""><i class="uk-margin-small-right icofont-at"></i> Contact</a></li>
+			<li class="uk-nav-divider"></li>
+			<li><a href="{{ path('security_login') }}"><i class="uk-margin-small-right icofont-login"></i> Se connecter</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title 'Classmate' %} | Classmate</title>
+	<link rel="icon" href="{{ asset('images/icone.png') }}">
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('back_app') }}
+	{% endblock %}
+</head>
+<body>
+{% include("back/header.html.twig") %}
+{% include("back/menu.html.twig") %}
+
+{% block body %}
+{% endblock %}
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('back_app') }}
+	<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+{% endblock %}
+</body>
+</html>
