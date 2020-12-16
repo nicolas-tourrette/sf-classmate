@@ -3,18 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% block title 'Classmate' %} | Classmate</title>
+	<title>{% block title 'Espace personnel' %} | Classmate</title>
 	<link rel="icon" href="{{ asset('images/icone.png') }}">
 	{% block stylesheets %}
 		{{ encore_entry_link_tags('back_app') }}
 	{% endblock %}
 </head>
 <body>
-{% include("back/header.html.twig") %}
-{% include("back/menu.html.twig") %}
+{% include("back/" ~ space ~ "/header.html.twig") %}
+{% include("back/" ~ space ~ "/menu.html.twig") %}
 
-{% block body %}
-{% endblock %}
+<div id="content" data-uk-height-viewport="expand: true">
+	<div class="uk-container uk-container-expand">
+		{% block body %}
+		{% endblock %}
+		
+		<footer class="uk-section uk-section-small uk-text-center">
+			<hr>
+			<p class="uk-text-small uk-text-center">
+				&copy; {{ "now" | date("Y") }} Nicolas TOURRETTE. Tous droits réservés.<br>
+				Panel {{ panel }} v{{ version.getBackofficeVersionNumber(space) }} et Classmate v{{ version.currentVersionNumber }}
+			</p>
+		</footer>
+	</div>
+</div>
 
 {% block javascripts %}
 	{{ encore_entry_script_tags('back_app') }}

@@ -1,0 +1,36 @@
+<header id="top-head" class="uk-position-fixed">
+	<div class="uk-container uk-container-expand uk-background-primary">
+		<nav class="uk-navbar uk-light" data-uk-navbar="mode:click; duration: 250">
+			<div class="uk-navbar-left">
+				<div class="uk-navbar-item uk-hidden@m">
+					<a class="uk-logo" href="{{ path("back_home", {"space": space}) }}">
+						<img class="custom-logo" src="{{ asset("images/icone.png") }}" alt="">
+					</a>
+				</div>
+				<ul class="uk-navbar-nav uk-visible@m">
+					<li><a href="#">Informations</a></li>
+					{% block specific_menu %}
+					{% endblock %}
+				</ul>
+				{#<div class="uk-navbar-item uk-visible@s">
+					<form action="" method="post" class="uk-search uk-search-default">
+						<span data-uk-search-icon></span>
+						<input class="uk-search-input search-field" type="search" placeholder="Search">
+					</form>
+				</div>#}
+			</div>
+			<div class="uk-navbar-right">
+				<ul class="uk-navbar-nav">
+					<li><a href="#" data-uk-icon="user" title="Mon profil" data-uk-tooltip></a></li>
+					<li><a href="#" data-uk-icon="cog" title="Mes paramètres" data-uk-tooltip></a></li>
+					<li><a href="#" data-uk-icon="sign-out" title="Se déconnecter" data-uk-tooltip></a></li>
+					<li>
+						<a class="uk-navbar-toggle uk-hidden@m"
+						   data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav" title="Menu"
+						   data-uk-tooltip></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
