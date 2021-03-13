@@ -41,40 +41,56 @@
 		</style>
 	{% endblock %}
 </head>
-<body>
 
 <body class="login uk-cover-container uk-background-secondary uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-overflow-hidden uk-light"
       data-uk-height-viewport>
-	<!-- overlay -->
-	<div class="uk-position-cover uk-overlay-primary"></div>
-	<!-- /overlay -->
-	<div class="uk-position-bottom-center uk-position-small uk-visible@m uk-position-z-index">
-		<span class="uk-text-small uk-text-muted">© {{ 'now' | date("Y") }} Nicolas TOURRETTE. Tous droits réservés.</span>
-		</div>
-		<div class="uk-width-medium uk-padding-small uk-position-z-index" uk-scrollspy="cls: uk-animation-fade">
+<!-- overlay -->
+<div class="uk-position-cover uk-overlay-primary"></div>
+<!-- /overlay -->
+<div class="uk-position-bottom-center uk-position-small uk-visible@m uk-position-z-index">
+	<span class="uk-text-small uk-text-muted">© {{ 'now' | date("Y") }} Nicolas TOURRETTE. Tous droits réservés.</span>
+</div>
+<div class="uk-width-medium uk-padding-small uk-position-z-index" uk-scrollspy="cls: uk-animation-fade">
 	
 	<div class="uk-text-center uk-margin">
 		<img src="{{ asset('images/icone.png') }}" alt="Classmate">
 	</div>
 	
+	{% if error %}
+		<div class="uk-text-center uk-margin">
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+			</div>
+		</div>
+	{% endif %}
+	
 	<!-- login -->
-	<form class="toggle-class" action="">
+	<form class="toggle-class" method="post">
 		<fieldset class="uk-fieldset">
 			<div class="uk-margin-small">
 				<div class="uk-inline uk-width-1-1">
 					<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: user"></span>
-					<input class="uk-input uk-border-pill" required placeholder="Nom d'utilisateur" type="text">
+					<input class="uk-input uk-border-pill" required placeholder="Nom d'utilisateur" name="username"
+					       type="text"
+							{% if app.request.query is defined %}
+								value="{{ app.request.query.get('last_username') }}"
+							{% else %}
+								value="{{ last_username }}"
+							{% endif %}
+					>
 				</div>
 			</div>
 			<div class="uk-margin-small">
 				<div class="uk-inline uk-width-1-1">
 					<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
-					<input class="uk-input uk-border-pill" required placeholder="Mot de passe" type="password">
+					<input class="uk-input uk-border-pill" required placeholder="Mot de passe" type="password" name="password">
 				</div>
 			</div>
 			<div class="uk-margin-small">
-				<label><input class="uk-checkbox" type="checkbox"> Se rappeler de moi</label>
+				<label><input class="uk-checkbox" type="checkbox" name="_remember_me"> Se rappeler de moi</label>
 			</div>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 			<div class="uk-margin-bottom">
 				<button type="submit" class="uk-button uk-button-primary uk-border-pill uk-width-1-1">SE CONNECTER</button>
 			</div>

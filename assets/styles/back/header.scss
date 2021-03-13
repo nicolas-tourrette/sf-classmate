@@ -15,6 +15,10 @@
   font-size: 0.85rem;
 }
 
+ul.uk-nav.uk-navbar-dropdown-nav li a.uk-active {
+ color: var(--light-dark-blue) !important;
+}
+
 img.custom-logo {
   filter: invert(1);
 }

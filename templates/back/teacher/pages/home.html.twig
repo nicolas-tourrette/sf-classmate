@@ -3,5 +3,6 @@
 {% block title 'Espace personnel enseignant' %}
 
 {% block body %}
-<h1>Hello world!</h1>
+    <h1>Bonjour {{ app.user.firstname }}, ravi de vous revoir !</h1>
+    <p>Voici ce qu'il y a de nouveau dans votre Classmate Enseignant pour la classe de #CLASSE#.</p>
 {% endblock %}

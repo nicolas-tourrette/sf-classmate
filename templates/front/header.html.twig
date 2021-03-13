@@ -6,9 +6,15 @@
 					<li>
 						<a href="#">Souscrire</a>
 					</li>
+					{% if app.user %}
+					<li>
+						<a href="{{ path('back_home', {"space": compass.userBackoffice(app.user)}) }}">Mon compte</a>
+					</li>
+					{% else %}
 					<li>
 						<a href="{{ path('security_login') }}">Se connecter</a>
 					</li>
+					{% endif %}
 				</ul>
 			</div>
 			<div class="uk-navbar-center nav-overlay">

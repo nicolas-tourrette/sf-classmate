@@ -36,7 +36,6 @@ class MainBackController extends AbstractController
 	public function index(string $space): Response
 	{
 		return $this->render("back/" . $space . "/pages/home.html.twig", array(
-			"space" => $space,
 			"panel" => $this->getPanelName($space)
 		));
 	}

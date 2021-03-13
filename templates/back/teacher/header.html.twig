@@ -3,12 +3,20 @@
 		<nav class="uk-navbar uk-light" data-uk-navbar="mode:click; duration: 250">
 			<div class="uk-navbar-left">
 				<div class="uk-navbar-item uk-hidden@m">
-					<a class="uk-logo" href="{{ path("back_home", {"space": space}) }}">
+					<a class="uk-logo" href="{{ path("back_home", {"space": compass.getUserBackoffice(app.user)}) }}">
 						<img class="custom-logo" src="{{ asset("images/icone.png") }}" alt="">
 					</a>
 				</div>
 				<ul class="uk-navbar-nav uk-visible@m">
 					<li><a href="#">Informations</a></li>
+					<li>
+						<a href="#">Classe <span uk-icon="triangle-down"></span></a>
+						<div class="uk-navbar-dropdown">
+							<ul class="uk-nav uk-navbar-dropdown-nav">
+								<li><a href="#" class="uk-active">CM2 A</a></li>
+							</ul>
+						</div>
+					</li>
 					{% block specific_menu %}
 					{% endblock %}
 				</ul>
@@ -23,7 +31,7 @@
 				<ul class="uk-navbar-nav">
 					<li><a href="#" data-uk-icon="user" title="Mon profil" data-uk-tooltip></a></li>
 					<li><a href="#" data-uk-icon="cog" title="Mes paramètres" data-uk-tooltip></a></li>
-					<li><a href="#" data-uk-icon="sign-out" title="Se déconnecter" data-uk-tooltip></a></li>
+					<li><a href="{{ path("security_logout") }}" data-uk-icon="sign-out" title="Se déconnecter" data-uk-tooltip></a></li>
 					<li>
 						<a class="uk-navbar-toggle uk-hidden@m"
 						   data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav" title="Menu"

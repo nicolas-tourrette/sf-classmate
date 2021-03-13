@@ -10,11 +10,20 @@
 	{% endblock %}
 </head>
 <body>
-{% include("back/" ~ space ~ "/header.html.twig") %}
-{% include("back/" ~ space ~ "/menu.html.twig") %}
+{% include("back/" ~ compass.getUserBackoffice(app.user) ~ "/header.html.twig") %}
+{% include("back/" ~ compass.getUserBackoffice(app.user) ~ "/menu.html.twig") %}
 
 <div id="content" data-uk-height-viewport="expand: true">
 	<div class="uk-container uk-container-expand">
+		
+		{% for flashMessage in app.session.flashbag.get('403') %}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ flashMessage }}</p>
+				<p><i>Erreur 403 : accès interdit à la ressource. Vous avez été redirigé automatiquement dans votre espace.</i></p>
+			</div>
+		{% endfor %}
+		
 		{% block body %}
 		{% endblock %}
 		
@@ -22,7 +31,8 @@
 			<hr>
 			<p class="uk-text-small uk-text-center">
 				&copy; {{ "now" | date("Y") }} Nicolas TOURRETTE. Tous droits réservés.<br>
-				Panel {{ panel }} v{{ version.getBackofficeVersionNumber(space) }} et Classmate v{{ version.currentVersionNumber }}
+				Panel {{ panel }} v{{ version.getBackofficeVersionNumber(compass.getUserBackoffice(app.user)) }}
+				et Classmate v{{ version.currentVersionNumber }}
 			</p>
 		</footer>
 	</div>
